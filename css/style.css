@@ -1,12 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
 }
 
-body{
-background: rgb(192, 236, 214)40);
-
+body {
+    background: rgb(16, 65, 50);
+    color: antiquewhite;
 }
 
-
+img {
+    width: 70px;
+    width: 70px;
+    border: solid #D2B48C;
+   border radious: "50px"
+}

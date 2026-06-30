@@ -178,10 +178,26 @@ const cryptoData = [
     }
 ];
 
-const contenido = document.querySelector ('#contenedor');
+const contenido = document.querySelector('#contenedor');
 cryptoData.forEach(element => {
-    const p = document.createElement ('p')
-    p.innerHTML = `<p>${element.image} - ${element.name} - ${element.symbol}- ${element.price_usd} - ${element.percent_change_24h} - ${element.market_cap_usd}</p>`;
+    const p = document.createElement('p')
+    p.innerHTML = `<p>${element.name} - ${element.symbol}- ${element.price_usd} - ${element.percent_change_24h} - ${element.market_cap_usd}</p>`;
     contenido.appendChild(p);
+
+    const img = document.createElement('img');
+
+    const src = '../img/coins-money-stack_icon-icons.com_56193.png';
+
+    img.src = element.image;
+    img.onerror = () => {
+        img.onerror = null;
+        img.src = src;
+    };
+    contenido.appendChild(img)
 });
+
+
+
+
+
 
