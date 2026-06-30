@@ -180,24 +180,43 @@ const cryptoData = [
 
 const contenido = document.querySelector('#contenedor');
 cryptoData.forEach(element => {
+    // Contenedor de la card
+    const cardcrypto = document.createElement ('div');
+    cardcrypto.classList.add('p');
+
+    // 
     const p = document.createElement('p')
     p.innerHTML = `<p>${element.name} - ${element.symbol}- ${element.price_usd} - ${element.percent_change_24h} - ${element.market_cap_usd}</p>`;
-    contenido.appendChild(p);
 
+    //
     const img = document.createElement('img');
-
     const src = '../img/coins-money-stack_icon-icons.com_56193.png';
-
     img.src = element.image;
     img.onerror = () => {
         img.onerror = null;
         img.src = src;
     };
-    contenido.appendChild(img)
+
+
+    function formatPrice(price) {
+        if (price >= 1) {
+            return price.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        } else {
+            return price.toLocaleString('en-US', {
+                minimumFractionDigits: 6,
+                maximumFractionDigits: 8
+            });
+        }
+    }
+
+    cardcrypto.appendChild(img);
+    cardcrypto.appendChild(p);
+    contenido.appendChild(cardcrypto);
+
 });
-
-
-
 
 
 
