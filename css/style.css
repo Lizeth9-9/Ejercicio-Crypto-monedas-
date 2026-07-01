@@ -8,21 +8,19 @@ body {
     background: rgb(202, 241, 230);
     color: rgb(90, 86, 81);
     padding: 90px;
-    border: 1px solid red;
-}
+  }
 
 #contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 20px;
-    border: 1px solid red;
-}
+   }
 
 #contenedor .p {
     background: #ffffff;
-    padding: 1rem;
-    border-radius: 12px;
+    padding: 30px;
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -39,5 +37,6 @@ img {
     border-radius: 50px;
     display: block;
     margin-top: 0.5rem;
-    border: 1px solid red;
 }
+
+
