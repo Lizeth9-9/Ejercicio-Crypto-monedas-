@@ -5,35 +5,47 @@
 }
 
 body {
-    background: rgb(202, 241, 230);
-    color: rgb(90, 86, 81);
+    background: rgb(13, 68, 52);
+    color: rgb(226, 209, 188);
     padding: 90px;
-  }
+}
+
+
 
 #contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 20px;
-   }
+}
 
 #contenedor .p {
-    background: #ffffff;
+    background: #113250;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.08);
+ 
 }
 
 #contenedor .p p {
     margin-top: 0.75rem;
     font-size: 0.95rem;
     line-height: 1.4;
+       .texto-neon 
+        color: #fff; /* El interior del texto suele ser blanco o muy claro */
+        font-size: 15px;
+        font-weight: bold;
+         text-shadow: 
+    0 0 1px rgba(247, 147, 26, 0.6),
+    0 0 10px rgba(247, 147, 26, 0.4), 
+    0 0 20px rgba(247, 147, 26, 0.2);
+    
 }
 
 img {
     width: 70px;
-    border: solid #d2b48c;
+    border: 1px solid #d2b48c;
     border-radius: 50px;
     display: block;
     margin-top: 0.5rem;
@@ -44,6 +56,18 @@ img {
 }
 .negativo {
     color: red;
+}
+
+@media (min-width: 481px) {
+  #contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+      #contenedor {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 
