@@ -184,9 +184,32 @@ cryptoData.forEach(element => {
     const cardcrypto = document.createElement('div');
     cardcrypto.classList.add('p');
 
+
+    //mostrar colores segun rendimiento
+
+    const positiv = element.percent_change_24h >= 0;
+    const spanPercent = document.createElement('span');
+    let flecha;
+    if (positiv) {
+        flecha = '▲';
+        spanPercent.classList.add('positivo');
+    } else {
+        flecha = '▼';
+        spanPercent.classList.add('negativo');
+    }
+    spanPercent.textContent = `${flecha} ${element.percent_change_24h}%`;
+
     // Lo indicado por Mostrar
     const p = document.createElement('p')
-    p.innerHTML = `<p>${element.name} - ${element.symbol}- ${element.percent_change_24h} - ${element.market_cap_usd} - ${formatPrice(element.price_usd)} - ${formatMarketCap(element.market_cap_usd)}</p>`;
+    p.innerHTML =
+        `<p>
+    ${element.name} - 
+    ${element.symbol}- 
+    ${element.percent_change_24h}%- 
+    ${element.market_cap_usd} - 
+    ${formatPrice(element.price_usd)} - 
+    ${formatMarketCap(element.market_cap_usd)}
+         </p>`;
 
     //creacion de variable img para extraer la imagen del url
     const img = document.createElement('img');
@@ -212,6 +235,8 @@ cryptoData.forEach(element => {
         }
     }
 
+
+
     //funcion capitalización formateada
 
     function formatMarketCap(marketCap) {
@@ -227,6 +252,10 @@ cryptoData.forEach(element => {
     cardcrypto.appendChild(img);
     cardcrypto.appendChild(p);
     contenido.appendChild(cardcrypto);
+    p.appendChild(spanPercent);
+
+
+
 });
 
 

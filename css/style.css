@@ -39,4 +39,11 @@ img {
     margin-top: 0.5rem;
 }
 
+.positivo {
+    color: green;
+}
+.negativo {
+    color: red;
+}
+
 
