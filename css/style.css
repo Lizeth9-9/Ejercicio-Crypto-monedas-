@@ -19,6 +19,13 @@ body {
     padding: 20px;
 }
 
+#filtro{
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
 #contenedor .p {
     background: #113250;
     padding: 30px;
@@ -58,13 +65,13 @@ img {
     color: red;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 481px) {  /* TABLET */
   #contenedor {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1025px) {   /* ESCRITORIO */
       #contenedor {
     grid-template-columns: repeat(4, 1fr);
   }

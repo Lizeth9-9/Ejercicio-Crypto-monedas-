@@ -178,12 +178,39 @@ const cryptoData = [
     }
 ];
 
+//CONTENEDOR GENERAL // 
 const contenido = document.querySelector('#contenedor');
+
+// funcion para formaterar los decimales
+function formatPrice(price) {
+    if (price >= 1) {
+        return price.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    } else {
+        return price.toLocaleString('en-US', {
+            minimumFractionDigits: 6,
+            maximumFractionDigits: 8
+        });
+    }
+}
+
+//funcion capitalización formateada
+
+function formatMarketCap(marketCap) {
+    if (marketCap >= 1e12) return '$' + (marketCap / 1e12).toFixed(2) + 'T';
+    if (marketCap >= 1e9) return '$' + (marketCap / 1e9).toFixed(2) + 'B';
+    if (marketCap >= 1e6) return '$' + (marketCap / 1e6).toFixed(2) + 'M';
+    return '$' + marketCap.toFixed(2);
+}
+// const capitalizacionform = formatMarketCap(1500000000)
+// console.log(capitalizacionform);
+
 cryptoData.forEach(element => {
     // Contenedor de la card
     const cardcrypto = document.createElement('div');
     cardcrypto.classList.add('p');
-
 
     //mostrar colores segun rendimiento
 
@@ -201,15 +228,14 @@ cryptoData.forEach(element => {
 
     // Lo indicado por Mostrar
     const p = document.createElement('p')
-    p.innerHTML =
-        `<p>
+    p.innerHTML = `
     ${element.name} - 
     ${element.symbol}- 
     ${element.percent_change_24h}%- 
     ${element.market_cap_usd} - 
     ${formatPrice(element.price_usd)} - 
-    ${formatMarketCap(element.market_cap_usd)}
-         </p>`;
+    ${formatMarketCap(element.market_cap_usd)}`
+        ;
 
     //creacion de variable img para extraer la imagen del url
     const img = document.createElement('img');
@@ -220,43 +246,15 @@ cryptoData.forEach(element => {
         img.src = src;
     };
 
-    // funcion para formaterar los decimales
-    function formatPrice(price) {
-        if (price >= 1) {
-            return price.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        } else {
-            return price.toLocaleString('en-US', {
-                minimumFractionDigits: 6,
-                maximumFractionDigits: 8
-            });
-        }
-    }
-
-
-
-    //funcion capitalización formateada
-
-    function formatMarketCap(marketCap) {
-        if (marketCap >= 1e12) return '$' + (marketCap / 1e12).toFixed(2) + 'T';
-        if (marketCap >= 1e9) return '$' + (marketCap / 1e9).toFixed(2) + 'B';
-        if (marketCap >= 1e6) return '$' + (marketCap / 1e6).toFixed(2) + 'M';
-        return '$' + marketCap.toFixed(2);
-    }
-    const capitalizacionform = formatMarketCap(1500000000)
-    console.log(capitalizacionform);
-
     // lo que mostrara para  crear y renderizar contenido dinámico en una página web.
     cardcrypto.appendChild(img);
     cardcrypto.appendChild(p);
     contenido.appendChild(cardcrypto);
     p.appendChild(spanPercent);
 
-
-
 });
+
+
 
 
 
